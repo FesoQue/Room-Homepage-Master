@@ -39,14 +39,6 @@ openMenu.addEventListener('click', (e) => {
         nav.classList.add('show-nav');
         modal.classList.add('show-modal')
     }
-
-    // const el = e.target.dataset.id;
-    // if(el === 'ham') {
-    //     // e.target.dataset.id = 'burger';
-    //     nav.classList.add('show-nav');
-    //     modal.classList.add('show-modal')
-    //     modal.style.transform = "translateY(0)"
-    // } 
 })
 closeMenu.addEventListener('click', () => {
     if (nav.classList.contains('show-nav')) {
@@ -55,11 +47,17 @@ closeMenu.addEventListener('click', () => {
     }
 })
 
-// **** FUNCTIONS ****
+
+// **** SET INITIAL ITEM ****
 let initialCount = 0;
 
-function displayItem (showItem) {
-   let review = item[showItem]
+window.addEventListener('DOMContentLoaded', () => {
+    displayItem()
+})
+
+// **** FUNCTIONS ****
+function displayItem () {
+   let review = item[initialCount]
    heroBg.src = review.img
    contentHeading.textContent = review.heading
    contentText.textContent = review.text
@@ -73,7 +71,7 @@ function nextBtnClickHandler () {
     if (initialCount > item.length - 1) {
         initialCount = 0;
     }
-    displayItem(initialCount)
+    displayItem()
 }
 nextBtnClickHandler();
 
@@ -82,6 +80,6 @@ function prevBtnClickHandler () {
     if (initialCount < 0) {
         initialCount = item.length - 1;
     }
-    displayItem(initialCount)
+    displayItem()
 }
 prevBtnClickHandler();

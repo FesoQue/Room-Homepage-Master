@@ -58,7 +58,6 @@ html {
 body {
   font-size: 0.75rem;
   font-family: var(--ff-secondary);
-  /* background-color: lightblue; */
   min-height: 100vh;
   line-height: var(--line-height);
   overflow-x: hidden;
@@ -96,6 +95,11 @@ a {
 li {
   list-style-type: none;
 }
+/*
+==========================
+    NAV / HERO SECTION
+==========================
+*/
 .content {
   margin-bottom: 0;
 }
@@ -128,15 +132,14 @@ li {
 }
 .hero-item {
   display: flex;
-  width: 75vw;
+  width: 80vw;
+  height: inherit;
+  align-items: center;
   margin: 0 auto;
-  position: relative;
 }
 .hamburger,
 .close-nav {
-  position: absolute;
-  font-size: 1.5rem;
-  top: 38px;
+  font-size: 1.55rem;
   cursor: pointer;
 }
 .close-nav {
@@ -144,18 +147,45 @@ li {
 }
 .hamburger {
   color: var(--White);
+  margin: 0;
 }
 .close-nav {
   color: var(--Dark-Gray);
   display: none;
 }
 .logo {
-  margin: 3.33em 0 0 8em;
+  margin: 0 0 0 6em;
 }
 .nav-links {
   display: none;
 }
-/* JS DISPLAY SHOW NAV */
+/*
+======================
+    preview btn
+======================
+*/
+.preview-btn {
+  display: flex;
+  position: absolute;
+  right: 0;
+  bottom: 4.2px;
+  background-color: var(--Black);
+}
+.prev-arrow,
+.next-arrow {
+  padding: 1em 1.5em;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+.prev-arrow:hover,
+.next-arrow:hover {
+  background-color: var(--Dark-Gray);
+}
+/*
+======================
+    JS CLASSES
+======================
+*/
 .show-nav {
   visibility: visible;
   transform: translateY(0);
@@ -172,12 +202,12 @@ li {
 .show-nav .nav-links {
   display: flex;
   align-items: center;
-  position: absolute;
-  right: -40px;
-  height: 5.3rem;
+  justify-content: flex-end;
+  width: 100%;
 }
 .show-nav .nav-links a {
   font-size: 0.8rem;
+  font-weight: 700;
   color: var(--Black);
   margin: 0 0.5em;
 }
@@ -188,7 +218,7 @@ li {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.65);
   z-index: -9999;
   visibility: hidden;
 }
@@ -197,24 +227,11 @@ li {
   z-index: 999;
   visibility: visible;
 }
-/* END OF DISPLAY SHOW NAV */
-.preview-btn {
-  display: flex;
-  position: absolute;
-  right: 0;
-  bottom: 6px;
-}
-.prev-arrow,
-.next-arrow {
-  padding: 1em 1.5em;
-  background-color: var(--Black);
-  transition: all 0.5s ease;
-  cursor: pointer;
-}
-.prev-arrow:hover,
-.next-arrow:hover {
-  background-color: var(--Dark-Gray);
-}
+/*
+======================
+   CONTENT SECTION
+======================
+*/
 .content-item {
   width: 100%;
 }
@@ -251,7 +268,11 @@ li {
 .about-light img {
   min-width: 100%;
 }
-/* attribution */
+/*
+======================
+    ATTRIBUTION
+======================
+*/
 .attribution {
   text-align: center;
   padding: 0.3em;
@@ -260,12 +281,17 @@ li {
 .attribution a {
   color: var(--White);
 }
+/*
+====================
+   MEDIA QUERIES
+====================
+*/
 @media screen and (min-width: 950px) {
   .content {
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
-    height: 70vh;
+    height: 65vh;
   }
   .hero-content {
     width: 55%;
@@ -327,7 +353,7 @@ li {
   /* preview */
   .preview-btn {
     bottom: 0;
-    right: -147px;
+    /* right: 0; */
   }
   .prev-arrow,
   .next-arrow {
@@ -337,6 +363,7 @@ li {
   .about-section {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    height: 35vh;
   }
   .about-dark {
     grid-column: span 3;
@@ -347,6 +374,7 @@ li {
   .about-info {
     grid-column: span 6;
     margin-top: 2em;
+    margin-bottom: 0;
   }
   .about-info p {
     font-size: 0.58rem;
@@ -398,7 +426,7 @@ li {
     font-size: 0.7rem;
   }
   .preview-btn {
-    right: -165px;
+    right: -11.15em;
   }
   .prev-arrow,
   .next-arrow {
